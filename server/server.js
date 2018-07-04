@@ -13,6 +13,7 @@ const userRouter = require('./routes/user.router');
 const projectRouter = require('./routes/projects.router');
 const reminderRouter = require('./routes/reminders.router');
 const technologyRouter = require('./routes/technologies.router');
+const junctionRouter = require('./routes/junctions.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,6 +31,7 @@ app.use('/api/user', userRouter);
 app.use('/api/project', projectRouter);
 app.use('/api/reminder', reminderRouter);
 app.use('/api/technology', technologyRouter);
+app.use('/api/junction', junctionRouter);
 
 // Serve static files
 app.use(express.static('build'));
