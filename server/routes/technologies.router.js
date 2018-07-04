@@ -22,7 +22,7 @@ router.get('/:projectId', (req, res) => {
   console.log('GET /api/technology/projectId');
   if (req.isAuthenticated()) {
     const query = `
-    SELECT "t"."id", "t"."name"
+    SELECT "t"."id", "t"."name", "ptj"."version"
     FROM "technologies" AS "t"
     JOIN "projects_technologies_junction" AS "ptj"
     ON "ptj"."technology_id" = "t"."id"
