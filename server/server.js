@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const projectRouter = require('./routes/projects.router');
+const reminderRouter = require('./routes/reminders.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/project', projectRouter);
+app.use('/api/reminder', reminderRouter);
 
 // Serve static files
 app.use(express.static('build'));
