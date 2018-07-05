@@ -64,7 +64,7 @@ router.post('/', (req, res) => {
     ];
     pool.query(query, params)
       .then(results => {
-        res.sendStatus(201);
+        res.send(results.rows);
       })
       .catch(error => {
         res.sendStatus(500);
