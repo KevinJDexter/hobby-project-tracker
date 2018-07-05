@@ -18,7 +18,7 @@ export function callPostReminder(payload) {
   };
 
   return axios.post('/api/reminder', payload, config)
-    .then(response => response.data[0].id)
+    .then(response => response.data)
     .catch(error => { throw error.response || error; });
 }
 
