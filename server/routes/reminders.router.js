@@ -1,6 +1,30 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
+router.get('/all', (req, res) => {
+  console.log('GET /api/reminder/all');
+  if (req.isAuthenticated()) {
+    const query = `
+      SELECT "r".*
+      FROM "reminders" AS "r"
+      JOIN "projects" AS "p"
+      ON "r"."project_id" = "p"."id"
+      WHERE "p"."user_id" = $1;
+    `;
+    const params = [req.user.id];
+    pool.query(query, params)
+      .then(results => {
+        res.send(results.rows);
+      })
+      .catch(error => {
+        res.sendStatus(500);
+        console.log('ERROR in GET /api/reminder/all :', error);
+      })
+  } else {
+    res.sendStatus(403);
+  }
+})
+
 router.get('/:projectId', (req, res) => {
   console.log('GET /api/reminder/projectId');
   if (req.isAuthenticated()) {
