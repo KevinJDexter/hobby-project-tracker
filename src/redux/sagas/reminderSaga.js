@@ -43,11 +43,11 @@ function* fetchEditReminder (action) {
   }
 } 
 
-function* technologySaga() {
+function* reminderSaga() {
   yield takeEvery(REMINDER_ACTIONS.FETCH_ALL_REMINDERS, fetchAllReminders);
   yield takeEvery(REMINDER_ACTIONS.FETCH_ADD_REMINDER, fetchAddReminder);
   yield takeEvery(REMINDER_ACTIONS.FETCH_DELETE_REMINDER, fetchDeleteReminder);
   yield takeEvery(REMINDER_ACTIONS.FETCH_EDIT_REMINDER, fetchEditReminder);
 }
 
-export default technologySaga;
+export default reminderSaga;
