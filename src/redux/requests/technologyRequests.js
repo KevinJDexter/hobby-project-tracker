@@ -17,7 +17,7 @@ export function callProjectTechnologies(projectId) {
     withCredentials: true,
   };
 
-  return axios.get(`'/api/technology/${projectId}`, config)
+  return axios.get(`/api/technology/${projectId}`, config)
     .then(response => response.data)
     .catch((error) => { throw error.response || error; });
 }
